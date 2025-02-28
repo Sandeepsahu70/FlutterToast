@@ -50,12 +50,12 @@ internal class MethodCallHandlerImpl(private var context: Context) : MethodCallH
                     val text = layout.findViewById<TextView>(R.id.text,)
                     text.text = mMessage
 
-                    val gradientDrawable: Drawable? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        context.getDrawable(R.drawable.corner)!!
-                    } else {
-                       // context.resources.getDrawable(R.drawable.corner)
-                        ContextCompat.getDrawable(context, R.drawable.corner)
-                    }
+                     val drawable = someView.background
+            if (drawable is GradientDrawable) {
+    // Gradient-specific logic
+          } else if (drawable is ColorDrawable) {
+    // Handle ColorDrawable (e.g., skip gradient operations)
+}
                     gradientDrawable!!.setColorFilter(bgcolor.toInt(), PorterDuff.Mode.SRC_IN)
                     text.background = gradientDrawable
 
